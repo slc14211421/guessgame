@@ -1,0 +1,13 @@
+@mixin tap-surface {
+  transition: transform 120ms ease, background-color 120ms ease, border-color 120ms ease;
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+@mixin text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

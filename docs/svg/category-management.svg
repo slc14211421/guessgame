@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844" role="img" aria-labelledby="title desc">
+  <title id="title">分类管理页 SVG 原型</title>
+  <desc id="desc">分类管理页面由原生导航栏承载标题，内容区展示新增分类输入框、分类列表和删除入口。</desc>
+  <style>
+    .bg{fill:#f7f4ed}.surface{fill:#fffdf8;stroke:#d9d3c7}.ink{fill:#232522}.muted{fill:#6f746e}.accent{fill:#2f6b57}.danger{fill:#b65345}.txt{font-family:"Microsoft YaHei","Noto Sans SC",sans-serif}.h2{font-size:16px;font-weight:700}.body{font-size:14px}.small{font-size:12px}.btnText{fill:#fffdf8;font-size:15px;font-weight:700}
+  </style>
+  <rect class="bg" width="390" height="844"/>
+
+  <rect x="36" y="36" width="318" height="118" rx="14" class="surface"/>
+  <rect x="54" y="54" width="282" height="42" rx="8" fill="#fffdf8" stroke="#d9d3c7"/>
+  <text class="txt body muted" x="74" y="81">请输入分类名称</text>
+  <rect x="54" y="106" width="282" height="36" rx="8" class="accent"/>
+  <text class="txt btnText" x="166" y="130">新增分类</text>
+
+  <g>
+    <rect x="36" y="182" width="318" height="70" rx="14" class="surface"/>
+    <text class="txt h2 ink" x="58" y="214">成语</text>
+    <text class="txt small muted" x="58" y="234">管理该分类下的词语</text>
+    <rect x="310" y="196" width="44" height="38" rx="8" class="danger"/>
+    <text class="txt small" fill="#fffdf8" x="320" y="220">删除</text>
+  </g>
+  <g>
+    <rect x="36" y="268" width="318" height="70" rx="14" class="surface"/>
+    <text class="txt h2 ink" x="58" y="300">水果</text>
+    <text class="txt small muted" x="58" y="320">管理该分类下的词语</text>
+    <rect x="310" y="282" width="44" height="38" rx="8" class="danger"/>
+    <text class="txt small" fill="#fffdf8" x="320" y="306">删除</text>
+  </g>
+  <g>
+    <rect x="36" y="354" width="318" height="70" rx="14" class="surface"/>
+    <text class="txt h2 ink" x="58" y="386">蔬菜</text>
+    <text class="txt small muted" x="58" y="406">管理该分类下的词语</text>
+    <rect x="310" y="368" width="44" height="38" rx="8" class="danger"/>
+    <text class="txt small" fill="#fffdf8" x="320" y="392">删除</text>
+  </g>
+  <g>
+    <rect x="36" y="440" width="318" height="70" rx="14" class="surface"/>
+    <text class="txt h2 ink" x="58" y="472">动物</text>
+    <text class="txt small muted" x="58" y="492">管理该分类下的词语</text>
+    <rect x="310" y="454" width="44" height="38" rx="8" class="danger"/>
+    <text class="txt small" fill="#fffdf8" x="320" y="478">删除</text>
+  </g>
+  <g>
+    <rect x="36" y="526" width="318" height="70" rx="14" class="surface"/>
+    <text class="txt h2 ink" x="58" y="558">人物</text>
+    <text class="txt small muted" x="58" y="578">管理该分类下的词语</text>
+    <rect x="310" y="540" width="44" height="38" rx="8" class="danger"/>
+    <text class="txt small" fill="#fffdf8" x="320" y="564">删除</text>
+  </g>
+</svg>

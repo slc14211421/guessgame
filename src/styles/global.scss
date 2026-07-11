@@ -1,0 +1,143 @@
+@use '@/styles/tokens.scss' as *;
+@use '@/styles/mixins.scss' as *;
+
+page {
+  min-height: 100%;
+  background: $color-page;
+  color: $color-text;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+.app-page {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: $space-lg $space-md;
+  background: $color-page;
+}
+
+.app-section {
+  margin-top: $space-lg;
+}
+
+.app-title {
+  display: block;
+  font-size: $font-title;
+  font-weight: 700;
+  line-height: 1.2;
+  color: $color-text;
+}
+
+.app-subtitle {
+  display: block;
+  margin-top: $space-xs;
+  font-size: $font-small;
+  line-height: 1.5;
+  color: $color-muted;
+}
+
+.app-card {
+  box-sizing: border-box;
+  padding: $space-md;
+  border: 2rpx solid $color-line;
+  border-radius: $radius-md;
+  background: $color-surface;
+  box-shadow: $shadow-panel;
+}
+
+.app-list {
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+}
+
+.app-list-item {
+  @include tap-surface;
+  box-sizing: border-box;
+  width: 100%;
+  padding: $space-md;
+  border: 2rpx solid $color-line;
+  border-radius: $radius-md;
+  background: $color-surface;
+}
+
+.app-list-item--selected {
+  border-color: $color-primary;
+  background: #edf8f6;
+}
+
+.app-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-md;
+}
+
+.app-input {
+  box-sizing: border-box;
+  min-height: 88rpx;
+  padding: 0 $space-md;
+  border: 2rpx solid $color-line;
+  border-radius: $radius-sm;
+  background: $color-surface;
+  color: $color-text;
+  font-size: $font-body;
+}
+
+.app-button {
+  @include tap-surface;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 92rpx;
+  margin: 0;
+  padding: 0 $space-lg;
+  border: 0;
+  border-radius: $radius-md;
+  background: $color-primary;
+  color: #ffffff;
+  font-size: $font-body;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.app-button::after {
+  border: 0;
+}
+
+.app-button--ghost {
+  border: 2rpx solid $color-line;
+  background: $color-surface;
+  color: $color-text;
+}
+
+.app-button--danger {
+  background: $color-danger;
+  color: #ffffff;
+}
+
+.app-button--disabled {
+  background: #b8c1c6;
+  color: #f8fafb;
+}
+
+.app-icon-button {
+  @include tap-surface;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: $radius-sm;
+  background: $color-surface;
+  border: 2rpx solid $color-line;
+}
+
+.app-count-badge {
+  min-width: 72rpx;
+  padding: 8rpx 14rpx;
+  border-radius: 999rpx;
+  background: #eef2f3;
+  color: $color-muted;
+  font-size: $font-small;
+  text-align: center;
+}

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844" role="img" aria-labelledby="title desc">
+  <title id="title">倒计时页 SVG 原型</title>
+  <desc id="desc">倒计时页面展示准备开始提示和 5 秒倒计时数字。</desc>
+  <style>
+    .bg{fill:#f7f4ed}.ink{fill:#232522}.muted{fill:#6f746e}.accent{fill:#2f6b57}.ring{fill:none;stroke:#2f6b57;stroke-width:10}.soft{fill:#fffdf8;stroke:#d9d3c7}.txt{font-family:"Microsoft YaHei","Noto Sans SC",sans-serif}.h1{font-size:28px;font-weight:700}.body{font-size:15px}.num{font-size:142px;font-weight:800}.btnText{fill:#232522;font-size:16px;font-weight:700}
+  </style>
+  <rect class="bg" width="390" height="844"/>
+  <text class="txt h1 ink" x="135" y="112">准备开始</text>
+  <text class="txt body muted" x="116" y="146">拿好手机，游戏即将进入横屏</text>
+  <circle cx="195" cy="360" r="112" fill="#fffdf8" stroke="#d9d3c7"/>
+  <circle cx="195" cy="360" r="112" class="ring" stroke-linecap="round" stroke-dasharray="520 704"/>
+  <text class="txt num accent" x="154" y="411">5</text>
+  <text class="txt body muted" x="126" y="515">倒计时结束后进入猜词模式</text>
+  <rect x="86" y="682" width="218" height="52" rx="16" class="soft"/>
+  <text class="txt btnText" x="164" y="715">返回首页</text>
+</svg>

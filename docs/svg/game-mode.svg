@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="844" height="390" viewBox="0 0 844 390" role="img" aria-labelledby="title desc">
+  <title id="title">猜词模式页 SVG 原型</title>
+  <desc id="desc">横屏猜词模式页面展示顶部剩余时间、退出入口和超大词条。</desc>
+  <style>
+    .bg{fill:#1e88e5}.word{fill:#fffdf8}.muted{fill:#dcecff}.accent{fill:#fffdf8}.txt{font-family:"Microsoft YaHei","Noto Sans SC",sans-serif}.wordText{font-size:156px;font-weight:900}.timer{font-size:28px;font-weight:900}.body{font-size:18px}.small{font-size:13px}
+  </style>
+  <rect class="bg" width="844" height="390"/>
+  <text class="txt timer muted" x="386" y="56">02:00</text>
+  <rect x="774" y="26" width="44" height="44" rx="10" fill="#2a96ee" stroke="#dcecff" stroke-width="2"/>
+  <path d="M786 38l20 20M806 38l-20 20" stroke="#fffdf8" stroke-width="5" stroke-linecap="round"/>
+  <text class="txt wordText word" x="108" y="252">画蛇添足</text>
+</svg>

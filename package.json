@@ -1,0 +1,33 @@
+{
+  "name": "guessgame",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev:h5": "uni",
+    "dev:app": "uni -p app",
+    "build:h5": "uni build",
+    "build:app": "uni build -p app",
+    "test": "vitest run",
+    "typecheck": "vue-tsc --noEmit"
+  },
+  "dependencies": {
+    "@babel/runtime-corejs3": "7.24.8",
+    "@dcloudio/uni-app": "3.0.0-5010520260709002",
+    "@dcloudio/uni-app-plus": "3.0.0-5010520260709002",
+    "@dcloudio/uni-components": "3.0.0-5010520260709002",
+    "@dcloudio/uni-h5": "3.0.0-5010520260709002",
+    "core-js-pure": "3.37.1",
+    "vue": "3.4.21"
+  },
+  "devDependencies": {
+    "@dcloudio/types": "latest",
+    "@dcloudio/vite-plugin-uni": "3.0.0-5010520260709002",
+    "@types/node": "^22.0.0",
+    "@vue/tsconfig": "^0.7.0",
+    "sass": "^1.101.0",
+    "typescript": "^5.5.0",
+    "vite": "5.2.8",
+    "vitest": "^2.1.0",
+    "vue-tsc": "3.3.7"
+  }
+}

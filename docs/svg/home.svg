@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844" role="img" aria-labelledby="title desc">
+  <title id="title">首页 SVG 原型</title>
+  <desc id="desc">你比我猜应用首页，原生导航栏承载标题，内容区展示分类管理入口、设置入口、分组列表、猜词时间单选和开始游戏按钮。</desc>
+  <style>
+    .bg{fill:#f7f4ed}.ink{fill:#232522}.muted{fill:#6f746e}.card{fill:#fffdf8;stroke:#d9d3c7;stroke-width:1.2}.selected{fill:#e6f0ea;stroke:#2f6b57;stroke-width:2}.accent{fill:#2f6b57}.soft{fill:#f0ebe1}.txt{font-family:"Microsoft YaHei","Noto Sans SC",sans-serif}.h2{font-size:18px;font-weight:700}.body{font-size:14px}.small{font-size:12px}.btn{fill:#2f6b57}.btnText{fill:#fffdf8;font-size:18px;font-weight:700}
+  </style>
+  <rect class="bg" width="390" height="844"/>
+  <rect x="18" y="18" width="354" height="808" rx="28" fill="#fffdf8" stroke="#d9d3c7"/>
+
+  <rect x="36" y="42" width="262" height="44" rx="10" fill="#fffdf8" stroke="#d9d3c7"/>
+  <text class="txt body ink" x="139" y="70">分类管理</text>
+  <rect x="314" y="42" width="40" height="44" rx="10" class="soft"/>
+  <circle cx="334" cy="64" r="7" fill="none" stroke="#232522" stroke-width="2"/>
+  <path d="M334 53v5M334 70v5M323 64h5M340 64h5" stroke="#232522" stroke-width="2" stroke-linecap="round"/>
+
+  <text class="txt h2 ink" x="36" y="126">词语分组</text>
+  <text class="txt small muted" x="291" y="126">共 5 组</text>
+
+  <rect x="36" y="148" width="318" height="72" rx="14" class="selected"/>
+  <text class="txt h2 ink" x="58" y="180">成语</text>
+  <text class="txt body muted" x="58" y="203">点击选择该分组</text>
+  <circle cx="320" cy="184" r="11" class="accent"/>
+  <path d="M315 184l4 4 8-9" fill="none" stroke="#fffdf8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="36" y="234" width="318" height="72" rx="14" class="card"/>
+  <text class="txt h2 ink" x="58" y="266">水果</text>
+  <text class="txt body muted" x="58" y="289">点击选择该分组</text>
+  <text class="txt small muted" x="310" y="275">4 个</text>
+  <rect x="36" y="320" width="318" height="72" rx="14" class="card"/>
+  <text class="txt h2 ink" x="58" y="352">蔬菜</text>
+  <text class="txt body muted" x="58" y="375">点击选择该分组</text>
+  <text class="txt small muted" x="310" y="361">4 个</text>
+  <rect x="36" y="406" width="318" height="72" rx="14" class="card"/>
+  <text class="txt h2 ink" x="58" y="438">动物</text>
+  <text class="txt body muted" x="58" y="461">点击选择该分组</text>
+  <text class="txt small muted" x="310" y="447">4 个</text>
+  <rect x="36" y="492" width="318" height="72" rx="14" class="card"/>
+  <text class="txt h2 ink" x="58" y="524">人物</text>
+  <text class="txt body muted" x="58" y="547">点击选择该分组</text>
+  <text class="txt small muted" x="310" y="533">4 个</text>
+
+  <rect x="36" y="594" width="318" height="120" rx="14" class="card"/>
+  <text class="txt h2 ink" x="58" y="628">选择猜词时间</text>
+  <rect x="58" y="650" width="76" height="32" rx="8" class="selected"/>
+  <text class="txt small ink" x="82" y="670">1分钟</text>
+  <rect x="146" y="650" width="76" height="32" rx="8" class="card"/>
+  <text class="txt small ink" x="170" y="670">2分钟</text>
+  <rect x="234" y="650" width="76" height="32" rx="8" class="card"/>
+  <text class="txt small ink" x="258" y="670">3分钟</text>
+  <rect x="58" y="690" width="76" height="32" rx="8" class="card"/>
+  <text class="txt small ink" x="82" y="710">5分钟</text>
+  <rect x="146" y="690" width="76" height="32" rx="8" class="card"/>
+  <text class="txt small ink" x="166" y="710">10分钟</text>
+
+  <rect x="36" y="750" width="318" height="56" rx="16" class="btn"/>
+  <text class="txt btnText" x="152" y="785">开始游戏</text>
+</svg>
