@@ -1,6 +1,6 @@
 {
   "name": "guessgame",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev:h5": "uni",
