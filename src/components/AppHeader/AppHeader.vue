@@ -1,3 +1,7 @@
+<!--
+  页面头部组件
+  统一的标题栏布局：左侧标题区 + 右侧操作插槽
+-->
 <template>
   <view class="app-header">
     <view class="app-header__main">
@@ -12,7 +16,9 @@
 
 <script setup lang="ts">
 interface Props {
+  /** 页面主标题 */
   title: string
+  /** 页面副标题（可选） */
   subtitle?: string
 }
 

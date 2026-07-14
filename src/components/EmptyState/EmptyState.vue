@@ -1,3 +1,7 @@
+<!--
+  空状态占位组件
+  用于列表无数据时展示提示信息
+-->
 <template>
   <view class="empty-state">
     <text class="empty-state__title">{{ title }}</text>
@@ -7,7 +11,9 @@
 
 <script setup lang="ts">
 interface Props {
+  /** 主提示文本 */
   title: string
+  /** 辅助描述文本（可选） */
   description?: string
 }
 

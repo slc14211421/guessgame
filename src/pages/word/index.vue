@@ -1,3 +1,7 @@
+<!--
+  词语管理页面
+  展示某个分类下的所有词语，支持新增和删除
+-->
 <template>
   <view class="app-page">
     <AppHeader
@@ -5,6 +9,7 @@
       subtitle="维护当前分类下的词语"
     />
 
+    <!-- 新增词语输入区 -->
     <view class="app-section app-card create-panel">
       <input
         v-model="newWordText"
@@ -17,6 +22,7 @@
       <button class="app-button" @click="handleCreateWord">新增词语</button>
     </view>
 
+    <!-- 词语列表 -->
     <view class="app-section">
       <view v-if="words.length > 0" class="app-list">
         <view v-for="word in words" :key="word.id" class="app-list-item word-row">
@@ -48,6 +54,7 @@ import {
 import type { Category } from '@/types/category'
 import type { WordItem } from '@/types/word'
 
+/** 当前分类 ID（从路由参数获取） */
 const categoryId = ref('')
 const category = ref<Category | undefined>()
 const words = ref<WordItem[]>([])
@@ -64,6 +71,7 @@ onShow(() => {
   }
 })
 
+/** 加载分类信息和词语列表，分类不存在时重定向回分类页 */
 function loadPageData() {
   if (!categoryId.value) {
     backToCategoryPage('分类不存在')
@@ -80,6 +88,7 @@ function loadPageData() {
   words.value = getWordsByCategoryId(categoryId.value)
 }
 
+/** 新增词语（含校验和去重） */
 function handleCreateWord() {
   try {
     createWord(categoryId.value, newWordText.value)
@@ -94,6 +103,7 @@ function handleCreateWord() {
   }
 }
 
+/** 删除词语 */
 function handleDeleteWord(wordId: string) {
   deleteWord(wordId)
   loadPageData()
@@ -103,10 +113,12 @@ function handleDeleteWord(wordId: string) {
   })
 }
 
+/** 从 URL 查询参数提取分类 ID */
 function getCategoryIdFromQuery(query?: Record<string, string | undefined>): string {
   return decodeURIComponent(String(query?.categoryId || ''))
 }
 
+/** 分类不存在时重定向回分类管理页 */
 function backToCategoryPage(message: string) {
   uni.showToast({
     title: message,

@@ -1,3 +1,8 @@
+<!--
+  设置面板组件（底部弹出式抽屉）
+  支持修改：背景色、词条颜色、出词方式、词条滚动模式
+  通过 v-model:visible 控制显隐
+-->
 <template>
   <view v-if="visible" class="settings-mask" @click="handleClose">
     <view class="settings-panel" @click.stop>
@@ -11,16 +16,19 @@
       <view class="settings-panel__divider" />
 
       <view class="settings-panel__body">
+        <!-- 背景色选择 -->
         <view class="settings-panel__group settings-panel__group--first">
           <text class="settings-panel__label">背景色</text>
           <ColorPicker v-model="draftSettings.backgroundColor" :colors="THEME_COLORS" />
         </view>
 
+        <!-- 词条颜色选择 -->
         <view class="settings-panel__group">
           <text class="settings-panel__label">词条颜色</text>
           <ColorPicker v-model="draftSettings.wordColor" :colors="THEME_COLORS" />
         </view>
 
+        <!-- 出词方式：顺序/随机 -->
         <view class="settings-panel__group">
           <text class="settings-panel__label">出词方式</text>
           <view class="settings-panel__radio-group">
@@ -47,6 +55,7 @@
           </view>
         </view>
 
+        <!-- 词条滚动：开启/静态 -->
         <view class="settings-panel__group">
           <text class="settings-panel__label">词条滚动</text>
           <view class="settings-panel__radio-group">
@@ -97,8 +106,11 @@ import type { UserSettings } from '@/types/settings'
 import ColorPicker from '@/components/ColorPicker/ColorPicker.vue'
 
 interface Props {
+  /** 是否显示面板 */
   visible: boolean
+  /** 当前设置值 */
   settings: UserSettings
+  /** 是否显示"退出"按钮（游戏中打开时显示） */
   showExitGame?: boolean
 }
 
@@ -110,6 +122,7 @@ const emit = defineEmits<{
   exitGame: []
 }>()
 
+/** 草稿设置：在面板内修改，保存时才提交 */
 const draftSettings = reactive<UserSettings>({
   backgroundColor: props.settings.backgroundColor,
   wordColor: props.settings.wordColor,
@@ -117,6 +130,7 @@ const draftSettings = reactive<UserSettings>({
   isWordScrollEnabled: props.settings.isWordScrollEnabled
 })
 
+// 监听外部设置变化，同步到草稿（如重置设置时）
 watch(
   () => props.settings,
   (settings) => {

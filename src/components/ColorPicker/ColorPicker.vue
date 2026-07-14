@@ -1,3 +1,7 @@
+<!--
+  颜色选择器组件
+  以圆形色块网格展示可选颜色，支持 v-model 双向绑定
+-->
 <template>
   <view class="color-picker">
     <view
@@ -13,7 +17,9 @@
 
 <script setup lang="ts">
 interface Props {
+  /** 当前选中的颜色值（v-model） */
   modelValue: string
+  /** 可选颜色列表 */
   colors: string[]
 }
 

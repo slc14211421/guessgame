@@ -1,5 +1,12 @@
-// 生成默认词库数据脚本 — 精心策划的去重词库
-// 5 个分组 × 500 词 = 2500 条
+/**
+ * 生成默认词库数据脚本
+ *
+ * 用法：node scripts/generate-words.js
+ * 输出：src/constants/defaultWords.ts
+ *
+ * 从精心策划的去重词库生成 TypeScript 数据文件。
+ * 5 个分组中，成语和人物各有 500 词，水果、蔬菜、动物取全部去重词汇。
+ */
 
 const DEFAULT_CREATED_AT = '2026-07-10T00:00:00.000Z'
 
@@ -282,15 +289,20 @@ const personList = [
   '陈道明'
 ]
 
-// 去重 + 确保 500
+// ---- 工具函数 ----
+
+/** 数组去重（使用 Set） */
 function deduplicate(list) {
   return [...new Set(list)]
 }
 
+/**
+ * 确保词条数量达到目标值
+ * 不足时从已有词中循环取词补充，防止空列表
+ */
 function padIfNeeded(list, target, prefix) {
   const unique = deduplicate(list)
   if (unique.length >= target) return unique.slice(0, target)
-  // 不足时从已有词中加序号变体补充
   const result = [...unique]
   let idx = 0
   while (result.length < target) {
@@ -302,6 +314,8 @@ function padIfNeeded(list, target, prefix) {
   return result.slice(0, target)
 }
 
+// ---- 组装分类与词条 ----
+
 const categories = [
   { id: 'category_chengyu', name: '成语', words: padIfNeeded(chengyuList, 500) },
   { id: 'category_fruit', name: '水果', words: deduplicate(fruitList) },
@@ -310,6 +324,7 @@ const categories = [
   { id: 'category_person', name: '人物', words: padIfNeeded(personList, 500) }
 ]
 
+/** 生成所有词条数据，ID 格式为 word_{分组名}_{序号} */
 const allWords = []
 categories.forEach(({ id, words }) => {
   words.forEach((text, i) => {
@@ -322,6 +337,8 @@ categories.forEach(({ id, words }) => {
     })
   })
 })
+
+// ---- 生成 TypeScript 文件 ----
 
 const lines = []
 lines.push("import type { WordItem } from '@/types/word'")
@@ -336,11 +353,13 @@ allWords.forEach((w, i) => {
 lines.push(']')
 lines.push('')
 
+// 写入文件
 const fs = require('fs')
 const path = require('path')
 const outPath = path.join(__dirname, '..', 'src', 'constants', 'defaultWords.ts')
 fs.writeFileSync(outPath, lines.join('\n'), 'utf-8')
 
+// 输出统计信息
 const stats = categories.map(c => `${c.id}(${c.name}): ${c.words.length} 词, 去重后 ${deduplicate(c.words).length}  unique`).join('\n  ')
 console.log(`Generated ${allWords.length} words:\n  ${stats}`)
 console.log(`Output: ${outPath}`)

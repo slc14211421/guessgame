@@ -44,6 +44,26 @@ page {
   box-shadow: $shadow-panel;
 }
 
+.app-panel {
+  box-sizing: border-box;
+  padding: 26rpx;
+  border: 2rpx solid #dde3e6;
+  border-radius: 18rpx;
+  background: $color-surface;
+}
+
+.app-panel--edge-scroll {
+  overflow: hidden;
+  padding-right: 0;
+}
+
+.app-section-title {
+  display: block;
+  color: $color-text;
+  font-size: 30rpx;
+  font-weight: 800;
+}
+
 .app-list {
   display: flex;
   flex-direction: column;

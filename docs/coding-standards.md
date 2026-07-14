@@ -296,6 +296,8 @@ export function isValidHexColor(value: string): boolean {
 }
 ```
 
+猜词模式背景色和词条颜色必须避免明显不可读。保存设置时若颜色组合明显不可读，应由设置服务自动修正词条颜色；蓝底白字等可读组合允许保留，页面不得各自实现不同的兜底规则。
+
 ### 9.3 反馈文案
 
 | 场景 | 文案 |
@@ -325,6 +327,7 @@ export function isValidHexColor(value: string): boolean {
 8. 按钮、输入框、色块、卡片、列表、弹窗、顶部栏、空状态等通用 UI 不得在多个页面重复实现样式；出现第二处使用时必须抽成组件、公共 class 或 mixin。
 9. 新增视觉样式前必须优先检查 `uni.scss`、`styles/` 和 `components/` 是否已有可复用实现。
 10. 已由原生导航栏展示页面标题时，内容区不得重复展示同名页面标题。
+11. 页面级面板外框、分区标题等重复结构优先复用 `.app-panel`、`.app-section-title` 等全局样式。
 
 ### 10.2 禁用视觉套路
 

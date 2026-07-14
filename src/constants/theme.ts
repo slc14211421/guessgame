@@ -1,5 +1,6 @@
 import type { UserSettings } from '@/types/settings'
 
+/** 默认设置：黑底白字，顺序出词，开启滚动 */
 export const DEFAULT_SETTINGS: UserSettings = {
   backgroundColor: '#111111',
   wordColor: '#FFFFFF',
@@ -7,6 +8,7 @@ export const DEFAULT_SETTINGS: UserSettings = {
   isWordScrollEnabled: true
 }
 
+/** 可选的主题颜色列表（背景色/文字色共用） */
 export const THEME_COLORS = [
   '#111111',
   '#FFFFFF',

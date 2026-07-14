@@ -1,6 +1,10 @@
+<!--
+  倒计时页面
+  游戏开始前的 5 秒倒计时，带音效提示。
+  先播放"准备开始"音效，然后逐秒倒数至 0 后跳转到游戏页。
+-->
 <template>
   <view class="countdown-page">
-    <!-- <text class="countdown-page__label">准备开始</text> -->
     <text class="countdown-page__number">{{ count }}</text>
     <button class="app-button app-button--ghost countdown-page__back" @click="handleBack">
       返回首页
@@ -17,8 +21,10 @@ import { playCountdownTickSound, playGameReadySound, stopGameAudio } from '@/uti
 
 const categoryId = ref('')
 const durationSeconds = ref(0)
+/** 当前倒计时数字 */
 const count = ref(5)
 let timer: ReturnType<typeof setInterval> | null = null
+/** 准备音效的超时降级计时器：如果音效 10 秒还未播完，强制开始倒数 */
 let readyFallbackTimer: ReturnType<typeof setTimeout> | null = null
 let isPageActive = false
 let isRedirectingToGame = false
@@ -28,19 +34,19 @@ onLoad((query) => {
   isPageActive = true
   isRedirectingToGame = false
   isCountdownStarted = false
+  // 进入游戏流程后锁定横屏
   lockLandscape()
   categoryId.value = decodeURIComponent(String(query?.categoryId || ''))
   durationSeconds.value = parseGameDurationSeconds(String(query?.durationSeconds || '')) || 0
-  const result = canStartGame(categoryId.value)
 
+  // 参数校验：分组无效或时长无效则返回首页
+  const result = canStartGame(categoryId.value)
   if (!result.ok) {
     uni.showToast({
       title: result.message || '该分组暂无词语',
       icon: 'none'
     })
-    uni.reLaunch({
-      url: '/pages/index/index'
-    })
+    uni.reLaunch({ url: '/pages/index/index' })
     return
   }
 
@@ -49,9 +55,7 @@ onLoad((query) => {
       title: '请选择猜词时间',
       icon: 'none'
     })
-    uni.reLaunch({
-      url: '/pages/index/index'
-    })
+    uni.reLaunch({ url: '/pages/index/index' })
     return
   }
 
@@ -62,20 +66,25 @@ onUnload(() => {
   isPageActive = false
   clearCountdown()
   clearReadyFallbackTimer()
+  // 仅在非正常跳转游戏页时清理音频和屏幕方向
   if (!isRedirectingToGame) {
     stopGameAudio()
     unlockPortrait()
   }
 })
 
+/** 开始倒计时：先播放准备音效，完成后进入逐秒倒数 */
 function startCountdown() {
   clearCountdown()
   clearReadyFallbackTimer()
   count.value = 5
+  // 播放"准备开始"音效，播完后回调 startReadCountdown
   playGameReadySound(startReadCountdown)
+  // 降级：10 秒后无论如何都开始倒数
   readyFallbackTimer = setTimeout(startReadCountdown, 10000)
 }
 
+/** 逐秒倒数：5 → 4 → 3 → 2 → 1 → 跳转游戏页 */
 function startReadCountdown() {
   if (!isPageActive || isCountdownStarted) return
   isCountdownStarted = true
@@ -133,12 +142,6 @@ function handleBack() {
   justify-content: center;
   padding: 48rpx 32rpx;
   background: #f5f7f8;
-}
-
-.countdown-page__label {
-  color: #6a747c;
-  font-size: 34rpx;
-  font-weight: 700;
 }
 
 .countdown-page__number {
